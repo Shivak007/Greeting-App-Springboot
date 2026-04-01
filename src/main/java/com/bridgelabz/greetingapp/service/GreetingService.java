@@ -26,4 +26,8 @@ public class GreetingService {
             return "Hello World";
         }
     }
+
+    public Greeting getGreetingById(Long id) {
+        return repository.findById(id).orElse(null);
+    }
 }
