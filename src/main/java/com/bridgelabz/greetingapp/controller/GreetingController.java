@@ -45,6 +45,12 @@ public class GreetingController {
         return "Hello World";
     }
 
+    @PutMapping("/update/{id}")
+    public Greeting update(@PathVariable Long id,
+                           @RequestParam String message) {
+        return service.updateGreeting(id, message);
+    }
+
     @DeleteMapping
     public String deleteGreeting() {
         return "Hello World";
