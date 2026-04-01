@@ -11,9 +11,10 @@ public class GreetingController {
         this.service = service;
     }
 
-    @GetMapping
-    public String getGreeting() {
-        return service.getGreeting();
+    @GetMapping("/query")
+    public String greetingQuery(@RequestParam(required = false) String firstName,
+                                @RequestParam(required = false) String lastName) {
+        return service.getGreeting(firstName, lastName);
     }
 
     @PostMapping
