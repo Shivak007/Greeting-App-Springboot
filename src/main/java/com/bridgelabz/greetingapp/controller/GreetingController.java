@@ -1,13 +1,19 @@
 package com.bridgelabz.greetingapp.controller;
 import org.springframework.web.bind.annotation.*;
+import com.bridgelabz.greetingapp.service.*;
 
 @RestController
 @RequestMapping("/greeting")
 public class GreetingController {
+    private final GreetingService service;
+
+    public GreetingController(GreetingService service) {
+        this.service = service;
+    }
 
     @GetMapping
     public String getGreeting() {
-        return "Hello World";
+        return service.getGreeting();
     }
 
     @PostMapping
